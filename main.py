@@ -1,4 +1,5 @@
 import random
+import checknum
 numbers =[1,2,3,4,5,6,7,8,9]
 
 row = [
@@ -57,6 +58,8 @@ def print_numbers():
         pos = random.choice(range(1,82))
         print(pos)
 
+
+"""
 def check_number(x,y):
     global available
     available = True
@@ -64,46 +67,101 @@ def check_number(x,y):
         prow = 0
         if x ==1:
             pcol =0
-            if y not in row[prow]:
-                row[prow][pcol]=y
-            else:
-                available = False
         elif x==2:
             pcol =1
-            row[prow][pcol]=y
         elif x==3:
             pcol =2
-            row[prow][pcol]=y
         elif x==4:
             pcol =3
-            row[prow][pcol]=y
         elif x==5:
             pcol = 4
-            row[prow][pcol]=y
         elif x==6:
             pcol = 5
-            row[prow][pcol]=y
         elif x==7:
             pcol = 6
-            row[prow][pcol]=y
         elif x==8:
             pcol = 7
-            row[prow][pcol]=y
         else:
             pcol = 8
-            row[prow][pcol]=y
+    elif 18>x>9:
+        prow = 1
+        if x ==10:
+            pcol =0
+        elif x == 11:
+            pcol = 1
+        elif x==12:
+            pcol =2
+        elif x==13:
+            pcol =3
+        elif x==14:
+            pcol =4
+        elif x==15:
+            pcol = 5
+        elif x==16:
+            pcol = 6
+        elif x==17:
+            pcol = 7
+        else:
+            pcol = 8
+    elif 28>x>18:
+        prow = 2
+        if x ==19:
+            pcol =0
+        elif x == 20:
+            pcol = 1
+        elif x==21:
+            pcol =2
+        elif x==22:
+            pcol =3
+        elif x==23:
+            pcol =4
+        elif x==24:
+            pcol = 5
+        elif x==25:
+            pcol = 6
+        elif x==26:
+            pcol = 7
+        else:
+            pcol = 8
+    elif 28>x>18:
+        prow = 2
+        if x ==19:
+            pcol =0
+        elif x == 20:
+            pcol = 1
+        elif x==21:
+            pcol =2
+        elif x==22:
+            pcol =3
+        elif x==23:
+            pcol =4
+        elif x==24:
+            pcol = 5
+        elif x==25:
+            pcol = 6
+        elif x==26:
+            pcol = 7
+        else:
+            pcol = 8
 
+    if y not in row[prow]:
+        row[prow][pcol]=y
+    else:
+        available = False
+        print("invaid number input in wrong place")
     return available
-
+"""
 
 def input_number():
     integer = int(input('enter your position: '))
     if integer>0 and integer<=81:
         inp = int(input("enter your number: "))
         if 0< inp <=9:
-            check_number(integer,inp)
-            if available == False:
+            a=checknum.check_number(integer,inp)
+            if checknum.available == False:
                 input_number()
+            else:
+                print("insert succesfull")
 
 for i in range(9):
     output()
