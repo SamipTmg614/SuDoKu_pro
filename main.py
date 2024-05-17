@@ -45,6 +45,7 @@ def input_number():
         if 0< inp <=9:
             checknum.check_number(integer,inp)
             if checknum.available == False:
+                print("invaid number input in wrong place")
                 input_number()
             else:
                 print("insert succesfull")

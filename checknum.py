@@ -290,7 +290,6 @@ def check_number(x,y):
     
     if row[prow][pcol] !=0:
         available = False
-        print("cannot change fixed value!")
     if y not in row[prow]:
         if y not in col[pcol]:
             if y not in pbox[oabox]:
@@ -299,11 +298,8 @@ def check_number(x,y):
                 pbox[oabox][abox]=y
             else:
                 available = False
-                print("invaid number input in wrong place")
         else:
             available = False
-            print("invaid number input in wrong place")
     else:
         available = False
-        print("invaid number input in wrong place")
     return available
