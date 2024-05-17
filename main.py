@@ -17,7 +17,7 @@ print("73 74 75 76 77 78 79 80 81")
 print("=======================================")
 
 def output():
-    for i in range(8):
+    for i in range(9):
         print(data.row[i])
 
 def print_numbers():
@@ -56,7 +56,7 @@ def input_number():
     
 
 
-print_numbers()
+# print_numbers()
 for i in range(200):
     output()
     input_number()

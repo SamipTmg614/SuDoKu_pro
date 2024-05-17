@@ -36,7 +36,7 @@ def check_number(x,y):
         else:
             abox=2
             pcol = 8
-    elif 18>x>9:
+    elif 18>=x>9:
         prow = 1
         if x ==10:
             pcol =0
