@@ -10,3 +10,6 @@ there are 3 files i have made which have different functions but works according
 The main file has the codes which decides what a user can see and takes input from themn and as well as works to solve the problem if called.
 the main file file is connected to check number where the position o the number to be input and the number is checked if it is available or not,if the number is available it returns available and replaces the given position with number.
 where as all the data to work with or the place to store are made in data file for clarity and to make code understandable
+
+
+how the decisiion process works:
