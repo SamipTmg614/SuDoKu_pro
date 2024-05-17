@@ -13,3 +13,4 @@ where as all the data to work with or the place to store are made in data file f
 
 
 how the decisiion process works:
+on file data.py data is stored as list. WHen the print numbers is called in main.py random position as well as number is generated whis is sent to the check_number() function of checknumber file which replaces the given position of row set with the given number, this process is repeated for given range number of times.
