@@ -1,40 +1,8 @@
 import random
 import checknum
+import data
 numbers =[1,2,3,4,5,6,7,8,9]
 
-row = [
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    ]
-col = [
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    ]
-box = [
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    ]
 
 print("POSTIONS FOR YOUR CONVINIENCE")
 print(" 1  2  3  4  5  6  7  8  9")
@@ -50,120 +18,46 @@ print("=======================================")
 
 def output():
     for i in range(8):
-        print(row[i])
+        print(data.row[i])
 
 def print_numbers():
-    number = random.choice(numbers)
-    for i in range(1,17):
-        pos = random.choice(range(1,82))
-        print(pos)
+    for i in range(30):
+        number = random.choice(numbers)
+        pos = random.choice(range(1,81))
+        checknum.check_number(pos,number)
+        
+def solve_numbers():
+    for i in range(999):
+        number = random.choice(numbers)
+        for j in range(1,82):
+            pos = random.choice(range(1,82))
+            checknum.check_number(pos,number)
 
 
-"""
-def check_number(x,y):
-    global available
-    available = True
-    if x < 10:
-        prow = 0
-        if x ==1:
-            pcol =0
-        elif x==2:
-            pcol =1
-        elif x==3:
-            pcol =2
-        elif x==4:
-            pcol =3
-        elif x==5:
-            pcol = 4
-        elif x==6:
-            pcol = 5
-        elif x==7:
-            pcol = 6
-        elif x==8:
-            pcol = 7
-        else:
-            pcol = 8
-    elif 18>x>9:
-        prow = 1
-        if x ==10:
-            pcol =0
-        elif x == 11:
-            pcol = 1
-        elif x==12:
-            pcol =2
-        elif x==13:
-            pcol =3
-        elif x==14:
-            pcol =4
-        elif x==15:
-            pcol = 5
-        elif x==16:
-            pcol = 6
-        elif x==17:
-            pcol = 7
-        else:
-            pcol = 8
-    elif 28>x>18:
-        prow = 2
-        if x ==19:
-            pcol =0
-        elif x == 20:
-            pcol = 1
-        elif x==21:
-            pcol =2
-        elif x==22:
-            pcol =3
-        elif x==23:
-            pcol =4
-        elif x==24:
-            pcol = 5
-        elif x==25:
-            pcol = 6
-        elif x==26:
-            pcol = 7
-        else:
-            pcol = 8
-    elif 28>x>18:
-        prow = 2
-        if x ==19:
-            pcol =0
-        elif x == 20:
-            pcol = 1
-        elif x==21:
-            pcol =2
-        elif x==22:
-            pcol =3
-        elif x==23:
-            pcol =4
-        elif x==24:
-            pcol = 5
-        elif x==25:
-            pcol = 6
-        elif x==26:
-            pcol = 7
-        else:
-            pcol = 8
-
-    if y not in row[prow]:
-        row[prow][pcol]=y
-    else:
-        available = False
-        print("invaid number input in wrong place")
-    return available
-"""
 
 def input_number():
     integer = int(input('enter your position: '))
+    if integer == 669:
+        solve_numbers()
+        # output()
     if integer>0 and integer<=81:
         inp = int(input("enter your number: "))
         if 0< inp <=9:
-            a=checknum.check_number(integer,inp)
+            checknum.check_number(integer,inp)
             if checknum.available == False:
                 input_number()
             else:
                 print("insert succesfull")
+        else:
+            print("number out of range")
+            input_number()
 
-for i in range(9):
+    
+
+
+print_numbers()
+for i in range(200):
     output()
     input_number()
+
     
