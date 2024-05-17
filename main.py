@@ -56,7 +56,7 @@ def input_number():
     
 
 
-# print_numbers()
+print_numbers()
 for i in range(200):
     output()
     input_number()
