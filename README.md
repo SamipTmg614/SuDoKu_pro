@@ -3,7 +3,7 @@ This is the program i have writeen as to propose my idea for upcoming software d
 since we have studied only upto conditional statement, I wrote the codes by only using logical state ments.
 
 this is basically supposed to be a 9x9 grid sudoku puzzle where few numbers are generated randomly.
-Since the pattern is generalted randomly and input by the user can be done at any position if it satisfy the given conditions, the number gets added and at the end, may result to not have a complete solution.
+Since the pattern is generalted randomly and input by the user can be done at any position if it satisfy the given conditions, the number gets added and at the end, this has result to not have a complete solution most of the time.
 
 OVERVIEW:
 there are 3 files i have made which have different functions but works according to each other.you have to run the main.py file. 
