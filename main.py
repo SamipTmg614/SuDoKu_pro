@@ -1,39 +1,8 @@
 import random
+import checknum
+import data
 numbers =[1,2,3,4,5,6,7,8,9]
 
-row = [
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    ]
-col = [
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    ]
-box = [
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0],
-    ]
 
 print("POSTIONS FOR YOUR CONVINIENCE")
 print(" 1  2  3  4  5  6  7  8  9")
@@ -49,63 +18,46 @@ print("=======================================")
 
 def output():
     for i in range(8):
-        print(row[i])
+        print(data.row[i])
 
 def print_numbers():
-    number = random.choice(numbers)
-    for i in range(1,17):
-        pos = random.choice(range(1,82))
-        print(pos)
+    for i in range(30):
+        number = random.choice(numbers)
+        pos = random.choice(range(1,81))
+        checknum.check_number(pos,number)
+        
+def solve_numbers():
+    for i in range(999):
+        number = random.choice(numbers)
+        for j in range(1,82):
+            pos = random.choice(range(1,82))
+            checknum.check_number(pos,number)
 
-def check_number(x,y):
-    global available
-    available = True
-    if x < 10:
-        prow = 0
-        if x ==1:
-            pcol =0
-            if y not in row[prow]:
-                row[prow][pcol]=y
-            else:
-                available = False
-        elif x==2:
-            pcol =1
-            row[prow][pcol]=y
-        elif x==3:
-            pcol =2
-            row[prow][pcol]=y
-        elif x==4:
-            pcol =3
-            row[prow][pcol]=y
-        elif x==5:
-            pcol = 4
-            row[prow][pcol]=y
-        elif x==6:
-            pcol = 5
-            row[prow][pcol]=y
-        elif x==7:
-            pcol = 6
-            row[prow][pcol]=y
-        elif x==8:
-            pcol = 7
-            row[prow][pcol]=y
-        else:
-            pcol = 8
-            row[prow][pcol]=y
-
-    return available
 
 
 def input_number():
     integer = int(input('enter your position: '))
+    if integer == 669:
+        solve_numbers()
+        # output()
     if integer>0 and integer<=81:
         inp = int(input("enter your number: "))
         if 0< inp <=9:
-            check_number(integer,inp)
-            if available == False:
+            checknum.check_number(integer,inp)
+            if checknum.available == False:
                 input_number()
+            else:
+                print("insert succesfull")
+        else:
+            print("number out of range")
+            input_number()
 
-for i in range(9):
+    
+
+
+print_numbers()
+for i in range(200):
     output()
     input_number()
+
     
