@@ -301,4 +301,6 @@ def check_number(x,y):
                 available = False
         else:
             available = False
+    else:
+        available = False
     return available
