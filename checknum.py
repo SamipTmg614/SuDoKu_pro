@@ -288,18 +288,17 @@ def check_number(x,y):
     else:
         oabox = 8
     
-    if row[prow][pcol] !=0:
-        available = False
-    if y not in row[prow]:
-        if y not in col[pcol]:
-            if y not in pbox[oabox]:
-                row[prow][pcol]=y
-                col[pcol][prow]=y
-                pbox[oabox][abox]=y
+    if row[prow][pcol] ==0:
+        if y not in row[prow]:
+            if y not in col[pcol]:
+                if y not in pbox[oabox]:
+                    row[prow][pcol]=y
+                    col[pcol][prow]=y
+                    pbox[oabox][abox]=y
+                else:
+                    available = False
             else:
                 available = False
         else:
             available = False
-    else:
-        available = False
     return available

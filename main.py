@@ -21,7 +21,7 @@ def output():
         print(data.row[i])
 
 def print_numbers():
-    for i in range(30):
+    for i in range(50):
         number = random.choice(numbers)
         pos = random.choice(range(1,81))
         checknum.check_number(pos,number)
@@ -37,6 +37,8 @@ def solve_numbers():
 
 def input_number():
     integer = int(input('enter your position: '))
+    # if integer>81 and integer<1:
+        # print("Invalid Input")
     if integer == 669:
         solve_numbers()
         # output()
