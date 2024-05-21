@@ -1,9 +1,10 @@
 import random
 import checknum
 import data
+import game
 numbers =[1,2,3,4,5,6,7,8,9]
 
-
+selected_cell =None
 print("POSTIONS FOR YOUR CONVINIENCE")
 print(" 1  2  3  4  5  6  7  8  9")
 print("10 11 12 13 14 15 16 17 18")
@@ -21,44 +22,48 @@ def output():
         print(data.row[i])
 
 def print_numbers():
-    for i in range(30):
+    for i in range(50):
         number = random.choice(numbers)
         pos = random.choice(range(1,81))
         checknum.check_number(pos,number)
         
-def solve_numbers():
-    for i in range(999):
-        number = random.choice(numbers)
-        for j in range(1,82):
-            pos = random.choice(range(1,82))
-            checknum.check_number(pos,number)
+# def solve_numbers():
+#     for i in range(999):
+#         number = random.choice(numbers)
+#         for j in range(1,82):
+#             pos = random.choice(range(1,82))
+#             checknum.check_number(pos,number)
 
 
 
-def input_number():
-    integer = int(input('enter your position: '))
-    if integer == 669:
-        solve_numbers()
-        # output()
-    if integer>0 and integer<=81:
-        inp = int(input("enter your number: "))
-        if 0< inp <=9:
-            checknum.check_number(integer,inp)
-            if checknum.available == False:
-                print("invaid number input in wrong place")
-                input_number()
-            else:
-                print("insert succesfull")
-        else:
-            print("number out of range")
-            input_number()
+# def input_number():
+#     # level = int(input("enter you level: "))
+#     # data.change_row(level)
+#     integer = int(input('enter your position: '))
+#     if integer == 669:
+#         solve_numbers()
+#         # output()
+#     if integer>0 and integer<=81:
+#         inp = int(input("enter your number: "))
+#         if 0< inp <=9:
+#             checknum.check_number(integer,inp)
+#             if checknum.available == False:
+#                 print("invaid number input in wrong place")
+#                 input_number()
+#             else:
 
-    
+#                 print("insert succesfull")
+#                 game.Game_loop()      
 
-
-print_numbers()
-for i in range(200):
-    output()
-    input_number()
+#         else:
+#             print("number out of range")
+#             input_number()
 
     
+
+
+
+
+
+   
+
