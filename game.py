@@ -73,7 +73,7 @@ def draw_selected_cell():
         # Draw a highlight around the selected cell
         row, col = selected_cell
         cell_rect = pg.Rect(15 + col * 80, 15 + row * 80, 80, 80)
-        pg.draw.rect(screen, pg.Color("blue"), cell_rect, 3)
+        pg.draw.rect(screen, pg.Color("green"), cell_rect, 3)
 
 
 def Game_loop():
@@ -87,8 +87,9 @@ def Game_loop():
         elif event.type == pg.KEYDOWN:
             if selected_cell is not None and event.unicode.isdigit():
                 row,col = selected_cell
-                checknum.checknumber()
-                number_grid[row][col] = int(event.unicode)
+                checknum.in_number(row,col,event.unicode)
+                if checknum.available==True:
+                    number_grid[row][col] = int(event.unicode)
                 selected_cell = None
     input_number = get_numbers()
     if input_number is not None:
