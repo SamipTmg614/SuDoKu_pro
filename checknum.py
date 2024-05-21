@@ -2,6 +2,39 @@ import data
 row = data.row
 col = data.col
 pbox = data.box
+def in_number(prow,pcol,oabox,abox,y):
+    if row[prow][pcol] ==0:
+        if y not in row[prow]:
+            if y not in col[pcol]:
+                if y not in pbox[oabox]:
+                    row[prow][pcol]=str(y)
+                    col[pcol][prow]=str(y)
+                    pbox[oabox][abox]=str(y)
+                else:
+                    available = False
+            else:
+                available = False
+        else:
+            available = False
+    else:
+        available = False
+    
+
+
+# def replace_for_sud():
+#                     row[prow][pcol]=y
+#                     col[pcol][prow]=y
+#                     pbox[oabox][abox]=y
+#                 else:
+#                     available = False
+#             else:
+#                 available = False
+#         else:
+#             available = False
+#     else:
+#         available = False
+#     return available
+
 
 def check_number(x,y):
     global available
@@ -287,20 +320,6 @@ def check_number(x,y):
         oabox = 7
     else:
         oabox = 8
-    
-    if row[prow][pcol] ==0:
-        if y not in row[prow]:
-            if y not in col[pcol]:
-                if y not in pbox[oabox]:
-                    row[prow][pcol]=y
-                    col[pcol][prow]=y
-                    pbox[oabox][abox]=y
-                else:
-                    available = False
-            else:
-                available = False
-        else:
-            available = False
-    else:
-        available = False
+
+    in_number(prow,pcol,oabox,abox,y)
     return available
