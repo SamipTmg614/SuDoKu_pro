@@ -42,13 +42,15 @@ def box(x):
     elif x==3:
         box3=[row[0][6],row[0][7],row[0][8],row[1][6],row[1][7],row[1][8],row[2][6],row[2][7],row[2][8]]
         return box3
-    # elif x==4:
-    #     box4=[row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][]]
-    # elif x==5:
-    #     box5=[row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][]]
+    elif x==4:
+        box4=[row[3][0],row[3][1],row[3][2],row[4][0],row[4][1],row[4][2],row[5][0],row[5][1],row[5][2]]
+        return box4
+    elif x==5:
+        box5=[row[3][3],row[3][4],row[3][5],row[4][3],row[4][4],row[4][5],row[5][3],row[5][4],row[5][5]]
+        return box5
     # elif x==6:
-    #     box6=[row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][]]
-    # elif x==7:
+        #     box6=[row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][]]
+        # elif x==7:
     #     box7=[row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][]]
     # elif x==8:
     #     box8=[row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][],row[][]]

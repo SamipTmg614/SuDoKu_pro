@@ -79,7 +79,7 @@ def Game_loop():
                 selected_cell = None
     input_number = get_numbers()
     if input_number is not None:
-        checknum.check_number()
+        checknum.in_number()
         pg.display.flip()  
 
     draw_background()
