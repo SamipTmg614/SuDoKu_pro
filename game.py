@@ -9,19 +9,6 @@ screen_size = 750,800
 screen = pg.display.set_mode(screen_size)
 font = pg.font.SysFont(None,80)
 
-
-# number_grid = [
-#     ['','','','','','','','','',''],
-#     ['','','','','','','','','',''],
-#     ['','','','','','','','','',''],
-#     ['','','','','','','','','',''],
-#     ['','','','','','','','','',''],
-#     ['','','','','','','','','',''],
-#     ['','','','','','','','','',''],
-#     ['','','','','','','','','',''],
-#     ['','','','','','','','','',''],
-#                ]
-
 selected_cell = None
 number_grid = data.row
 check = data.row
@@ -61,7 +48,6 @@ def get_clicked_cell(mouse_pos):
     if 15 <= x <= 735 and 15 <= y <= 735:  # Check if mouse position is within the Sudoku grid
         col = (x - 15) // 80
         row = (y - 15) // 80
-        print(row,col)
         return (row, col)
     else:
         return None 
