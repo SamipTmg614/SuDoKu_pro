@@ -14,10 +14,12 @@ def check(x,y):
     elif (x,y)==(3,3) or (x,y)==(3,4) or (x,y)==(3,5) or (x,y)==(4,3) or (x,y)==(4,4) or (x,y)==(4,5) or (x,y)==(5,3) or (x,y)==(5,4) or (x,y)==(5,5):
         result=5
         return result
-    # elif (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==():
-    #     result=0
-    # elif (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==():
-    #     result=0
+    elif (x,y)==(3,6) or (x,y)==(3,7) or (x,y)==(3,8) or (x,y)==(4,6) or (x,y)==(4,7) or (x,y)==(4,8) or (x,y)==(5,6) or (x,y)==(5,7) or (x,y)==(5,8):
+        result=6
+        return result
+    elif (x,y)==(6,0) or (x,y)==(6,1) or (x,y)==(6,2) or (x,y)==(7,0) or (x,y)==(7,1) or (x,y)==(7,2) or (x,y)==(8,0) or (x,y)==(8,1) or (x,y)==(8,2):
+        result=7
+        return result
     # elif (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==():
     #     result=0
     # elif (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==() or (x,y)==():
