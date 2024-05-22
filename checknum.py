@@ -1,32 +1,30 @@
 import data
+import check_box
 row = data.row
 col = data.col
-pbox = data.box
+
 
 available = None
 
 def in_number(x,y,z):
-
-    for i in data.obox1:
-        if x  in i and y  in i:
-            a=True
-
+ 
+    box_num=check_box.check(x,y)
+    box_data=data.box(box_num)   
+    
     if row[x][y] =='':
         if z not in row[x]:
             if z not in col[y]:
-                if a == True:
-                    row[x][y]=z
-                    col[y][x]=z
-                    available = True
-
+                if z not in box_data:                   
+                        row[x][y]=z
+                        col[y][x]=z
+                        box_data[box_num]=z
+                        available = True
                 else:
                     available = False
             else:
                 available = False
         else:
             available = False
-    else:
-        available = False
-    
-    return available
-    
+        
+        return available
+        
