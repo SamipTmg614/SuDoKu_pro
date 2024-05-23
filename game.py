@@ -2,7 +2,7 @@
 import  sys , pygame as pg
 import random 
 import checknum
-import data
+import question
 
 pg.init()
 clock = pg.time.set_timer(pg.USEREVENT,1000)
@@ -11,8 +11,11 @@ screen = pg.display.set_mode(screen_size)
 font = pg.font.SysFont(None,80)
 
 selected_cell = None
-number_grid = data.row
-check = data.row
+number_grid = question.row
+check = question.row
+
+difficulty_levels = ['Easy', 'Medium', 'Hard']
+selected_difficulty = None
 
 def draw_background():
     screen.fill(pg.Color("white"))
@@ -26,6 +29,20 @@ def draw_background():
         pg.draw.line(screen,pg.Color("black"),pg.Vector2((i * 80)+15,15),pg.Vector2((i*80)+15,735),linewidth)
         pg.draw.line(screen,pg.Color("black"),pg.Vector2(15 , (i * 80)+15),pg.Vector2(735,(i*80)+15),linewidth)
         i+=1
+
+def draw_buttons():
+    button_width = 100
+    button_height = 25
+    x = 20
+    y = 750
+    for i, level in enumerate(difficulty_levels):
+        button_rect = pg.Rect(x,y, button_width, button_height)
+        pg.draw.rect(screen, pg.Color("white"), button_rect)
+        text = font.render(level, True, pg.Color('black'))
+        text_rect = text.get_rect(center=button_rect.center)
+        screen.blit(text, text_rect)
+        x += button_width +150
+
 
 def Draw_numbers():
     for i in range(9):
@@ -64,6 +81,7 @@ def draw_selected_cell():
 
 
 def Game_loop():
+    global number_grid
     global selected_cell
     for event in pg.event.get():
         if event.type == pg.QUIT: 
@@ -71,10 +89,27 @@ def Game_loop():
         elif event.type == pg.MOUSEBUTTONDOWN:
             mouse_pos =pg.mouse.get_pos()
             selected_cell = get_clicked_cell(mouse_pos)
+            x,y = mouse_pos
+            if y>739:
+                if x<145:
+                    difficulty = "Easy"
+                    question.change_row(difficulty)
+                    
+                elif x>=145 and x<450:
+                    difficulty = "Medium"
+                    question.change_row(difficulty)
+                elif x>=450 and x<650:
+                    difficulty = "Hard"
+                    question.change_row(difficulty)
+                
+                
+            number_grid = question.row
+
+            Draw_numbers()
         elif event.type == pg.KEYDOWN:
             if selected_cell is not None and event.unicode.isdigit():
                 row,col = selected_cell
-                checknum.in_number(row,col,event.unicode)
+                checknum.in_number(row,col,event.unicode,number_grid)
                 if checknum.available==True:
                     number_grid[row][col] = int(event.unicode)
                 selected_cell = None
@@ -84,6 +119,8 @@ def Game_loop():
         pg.display.flip()  
 
     draw_background()
+    draw_buttons()
+
     draw_selected_cell()
     Draw_numbers()
     pg.display.flip()  
