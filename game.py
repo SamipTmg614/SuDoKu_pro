@@ -80,6 +80,7 @@ def draw_selected_cell():
 
 
 def Game_loop():
+    global number_grid
     global selected_cell
     for event in pg.event.get():
         if event.type == pg.QUIT: 
@@ -92,6 +93,7 @@ def Game_loop():
                 if x<145:
                     difficulty = 1
                     question.change_row(difficulty)
+                    print(number_grid)
                 elif x>=145 and x<450:
                     difficulty = 2
                     question.change_row(difficulty)
@@ -100,18 +102,13 @@ def Game_loop():
                     question.change_row(difficulty)
                 
                 
-                global number_grid
-                number_grid = question.row
+            number_grid = question.row
 
-                draw_background()
-                draw_buttons()
-                draw_selected_cell()
-                Draw_numbers()
-                pg.display.flip()
+            Draw_numbers()
         elif event.type == pg.KEYDOWN:
             if selected_cell is not None and event.unicode.isdigit():
                 row,col = selected_cell
-                checknum.in_number(row,col,event.unicode)
+                checknum.in_number(row,col,event.unicode,number_grid)
                 if checknum.available==True:
                     number_grid[row][col] = int(event.unicode)
                 selected_cell = None

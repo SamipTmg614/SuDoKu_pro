@@ -1,12 +1,14 @@
 import data,question
 import check_box
-row = question.row
+# row = question.row
 col = data.col
+
+
 
 
 available = None
 
-def in_number(x,y,z):
+def in_number(x,y,z,row):
  
     box_num=check_box.check(x,y)
     box_data=data.box(box_num)   
