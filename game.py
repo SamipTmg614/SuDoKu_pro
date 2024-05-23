@@ -1,7 +1,7 @@
 import  sys , pygame as pg
 import random 
 import checknum
-import data
+import question
 
 pg.init()
 clock = pg.time.set_timer(pg.USEREVENT,1000)
@@ -10,8 +10,8 @@ screen = pg.display.set_mode(screen_size)
 font = pg.font.SysFont(None,80)
 
 selected_cell = None
-number_grid = data.row
-check = data.row
+number_grid = question.row
+check = question.row
 
 difficulty_levels = ['Easy', 'Medium', 'Hard']
 selected_difficulty = None
@@ -80,6 +80,7 @@ def draw_selected_cell():
 
 
 def Game_loop():
+    global number_grid
     global selected_cell
     for event in pg.event.get():
         if event.type == pg.QUIT: 
@@ -90,15 +91,24 @@ def Game_loop():
             x,y = mouse_pos
             if y>739:
                 if x<145:
-                    print('easy')
+                    difficulty = 1
+                    question.change_row(difficulty)
+                    print(number_grid)
                 elif x>=145 and x<450:
-                    print("medium")
+                    difficulty = 2
+                    question.change_row(difficulty)
                 elif x>=450 and x<650:
-                    print("hard")
+                    difficulty = 3
+                    question.change_row(difficulty)
+                
+                
+            number_grid = question.row
+
+            Draw_numbers()
         elif event.type == pg.KEYDOWN:
             if selected_cell is not None and event.unicode.isdigit():
                 row,col = selected_cell
-                checknum.in_number(row,col,event.unicode)
+                checknum.in_number(row,col,event.unicode,number_grid)
                 if checknum.available==True:
                     number_grid[row][col] = int(event.unicode)
                 selected_cell = None

@@ -1,12 +1,14 @@
-import data
+import data,question
 import check_box
-row = data.row
+# row = question.row
 col = data.col
+
+
 
 
 available = None
 
-def in_number(x,y,z):
+def in_number(x,y,z,row):
  
     box_num=check_box.check(x,y)
     box_data=data.box(box_num)   
@@ -18,6 +20,7 @@ def in_number(x,y,z):
                         row[x][y]=z
                         col[y][x]=z
                         box_data[box_num]=z
+                        print(row)
                         available = True
                 else:
                     available = False
