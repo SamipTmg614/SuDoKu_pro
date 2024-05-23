@@ -112,11 +112,7 @@ def Game_loop():
                 if checknum.available==True:
                     number_grid[row][col] = int(event.unicode)
                 selected_cell = None
-    input_number = get_numbers()
-    if input_number is not None:
-        checknum.in_number()
-        pg.display.flip()  
-
+ 
     draw_background()
     draw_buttons()
 
