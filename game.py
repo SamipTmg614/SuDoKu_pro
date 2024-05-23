@@ -93,8 +93,7 @@ def Game_loop():
             if y>739:
                 if x<145:
                     difficulty = "Easy"
-                    question.change_row(difficulty)
-                    print(number_grid)
+                    question.change_row(difficulty)  
                 elif x>=145 and x<450:
                     difficulty = "Medium"
                     question.change_row(difficulty)
