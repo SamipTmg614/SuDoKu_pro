@@ -1,3 +1,4 @@
+
 import  sys , pygame as pg
 import random 
 import checknum
@@ -91,14 +92,13 @@ def Game_loop():
             x,y = mouse_pos
             if y>739:
                 if x<145:
-                    difficulty = 1
-                    question.change_row(difficulty)
-                    print(number_grid)
+                    difficulty = "Easy"
+                    question.change_row(difficulty)                    
                 elif x>=145 and x<450:
-                    difficulty = 2
+                    difficulty = "Medium"
                     question.change_row(difficulty)
                 elif x>=450 and x<650:
-                    difficulty = 3
+                    difficulty = "Hard"
                     question.change_row(difficulty)
                 
                 

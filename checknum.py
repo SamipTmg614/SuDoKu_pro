@@ -19,8 +19,7 @@ def in_number(x,y,z,row):
                 if z not in box_data:                   
                         row[x][y]=z
                         col[y][x]=z
-                        box_data[box_num]=z
-                        print(row)
+                        box_data[box_num]=z                        
                         available = True
                 else:
                     available = False
