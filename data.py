@@ -58,6 +58,3 @@ def box(x):
     elif x==8:
         box9=[row[6][6],row[6][7],row[6][8],row[7][6],row[7][7],row[7][8],row[8][6],row[8][7],row[8][8]]
         return box9
-
-        
-# print(obox1)
