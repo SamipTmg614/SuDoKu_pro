@@ -29,8 +29,8 @@ def draw_background():
             linewidth = 10
         else:
             linewidth = 5
-        pg.draw.line(screen,pg.Color("black"),pg.Vector2((i * 80)+15,15),pg.Vector2((i*80)+15,735),linewidth)
-        pg.draw.line(screen,pg.Color("black"),pg.Vector2(15 , (i * 80)+15),pg.Vector2(735,(i*80)+15),linewidth)
+        pg.draw.line(screen,pg.Color("black"),pg.Vector2((i * 80)+15,15),pg.Vector2((i*80)+15,733),linewidth)
+        pg.draw.line(screen,pg.Color("black"),pg.Vector2(15 , (i * 80)+15),pg.Vector2(733,(i*80)+15),linewidth)
         i+=1
 
 def draw_buttons():
