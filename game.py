@@ -18,7 +18,10 @@ difficulty_levels = ['Easy', 'Medium', 'Hard']
 selected_difficulty = None
 
 def draw_background():
-    screen.fill(pg.Color("white"))
+    screen.fill(pg.Color("black"))
+    background_image=pg.image.load("b_9.jpg")
+    background_image = pg.transform.scale(background_image, screen.get_size())
+    screen.blit(background_image,(0,0))
     pg.draw.rect(screen , pg.Color("black"),pg.Rect(15,15,720,720),10)
     i = 1
     while (i*80)<720:
@@ -31,14 +34,18 @@ def draw_background():
         i+=1
 
 def draw_buttons():
-    button_width = 100
-    button_height = 25
+    # image=pg.image.load("button_background.png") #For Button Image
+    button_width = 130
+    button_height = 30
+    font_size = 30  
+    font_path="FreeSans.ttf"
+    font = pg.font.Font(font_path, font_size)
     x = 20
     y = 750
-    for i, level in enumerate(difficulty_levels):
+    for i, level in enumerate(difficulty_levels):        
         button_rect = pg.Rect(x,y, button_width, button_height)
-        pg.draw.rect(screen, pg.Color("white"), button_rect)
-        text = font.render(level, True, pg.Color('black'))
+        pg.draw.rect(screen, pg.Color("black"), button_rect)
+        text = font.render(level, True, pg.Color('grey'))
         text_rect = text.get_rect(center=button_rect.center)
         screen.blit(text, text_rect)
         x += button_width +150
@@ -93,7 +100,7 @@ def Game_loop():
             if y>739:
                 if x<145:
                     difficulty = "Easy"
-                    question.change_row(difficulty)                    
+                    question.change_row(difficulty)  
                 elif x>=145 and x<450:
                     difficulty = "Medium"
                     question.change_row(difficulty)
@@ -112,7 +119,11 @@ def Game_loop():
                 if checknum.available==True:
                     number_grid[row][col] = int(event.unicode)
                 selected_cell = None
- 
+    input_number = get_numbers()
+    if input_number is not None:
+        checknum.in_number()
+        pg.display.flip()  
+
     draw_background()
     draw_buttons()
 
