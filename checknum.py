@@ -7,7 +7,7 @@ available = None
 
 def in_number(x,y,z,row): 
     box_num=check_box.check(x,y)#To determine box number
-    box_data=question.change_box()#Calling chnage_box to update box values
+    box_data=data.change_box()#Calling chnage_box to update box values
     if row[x][y] =='':
         if z not in row[x]:
             if z not in col[y]:
