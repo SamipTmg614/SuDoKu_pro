@@ -1,6 +1,5 @@
 
 import  sys , pygame as pg
-import random 
 import checknum
 import question
 
