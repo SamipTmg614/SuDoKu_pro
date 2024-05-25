@@ -13,7 +13,6 @@ row=[
     ['','','','','','','','',''],
     ]
 
-
 col=[
     ['','','','','','','','',''],
     ['','','','','','','','',''],
@@ -26,8 +25,7 @@ col=[
     ['','','','','','','','',''],
     ]
 
-
-
+#Function to add a box list according to the row data
 def change_box():
     box1 = [row[0][0],row[0][1],row[0][2],row[1][0],row[1][1],row[1][2],row[2][0],row[2][1],row[2][2]]
     box2 = [row[0][3],row[0][4],row[0][5],row[1][3],row[1][4],row[1][5],row[2][3],row[2][4],row[2][5]]
@@ -42,6 +40,7 @@ def change_box():
     box=[box1,box2,box3,box4,box5,box6,box7,box8,box9]
     return box
 
+#Function to check the which box the data belongs to
 def check(x,y):
     if (x,y)==(0,0) or (x,y)==(0,1) or (x,y)==(0,2)or (x,y)==(1,0)or (x,y)==(1,1)or (x,y)==(1,2)or (x,y)==(2,0)or (x,y)==(2,1)or (x,y)==(2,2):
         result=0
@@ -71,8 +70,9 @@ def check(x,y):
         result=8
         return result
 
+#Question library
 def change_row(x):
-    global row,random_number
+    global row
     if x=="Easy":
         if random_number==1:
             row=[ 

@@ -1,4 +1,3 @@
-
 import  sys , pygame as pg
 import checknum
 import question
@@ -33,7 +32,6 @@ def draw_background():
         i+=1
 
 def draw_buttons():
-    # image=pg.image.load("button_background.png") #For Button Image
     button_width = 130
     button_height = 30
     font_size = 25  
@@ -48,7 +46,6 @@ def draw_buttons():
         text_rect = text.get_rect(center=button_rect.center)
         screen.blit(text, text_rect)
         x += button_width +150
-
 
 def Draw_numbers():
     for i in range(9):
@@ -76,7 +73,6 @@ def get_clicked_cell(mouse_pos):
     else:
         return None 
 
-
 def draw_selected_cell():
     global selected_cell
     if selected_cell is not None:
@@ -85,7 +81,7 @@ def draw_selected_cell():
         cell_rect = pg.Rect(15 + col * 80, 15 + row * 80, 80, 80)
         pg.draw.rect(screen, pg.Color("green"), cell_rect, 3)
 
-
+#Main function for the game 
 def Game_loop():
     global number_grid
     global selected_cell
@@ -106,32 +102,22 @@ def Game_loop():
                 elif x>=450 and x<650:
                     difficulty = "Hard"
                     question.change_row(difficulty)
-                
-                
+                            
             number_grid = question.row
-
             Draw_numbers()
         elif event.type == pg.KEYDOWN:
             if selected_cell is not None and event.unicode.isdigit():
                 row,col = selected_cell
                 checknum.in_number(row,col,event.unicode,number_grid)
-                if checknum.available==True:
-                    number_grid[row][col] = int(event.unicode)
-                selected_cell = None
-    input_number = get_numbers()
-    if input_number is not None:
-        checknum.in_number()
-        pg.display.flip()  
 
+    #Calling Drawing Functions For GUI
     draw_background()
     draw_buttons()
-
     draw_selected_cell()
     Draw_numbers()
     pg.display.flip()  
     pg.display.update()
 
-
+#Loop that calls the main game loop until the user exits
 while 1:
     Game_loop()
-     
