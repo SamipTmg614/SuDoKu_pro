@@ -4,6 +4,8 @@ import random
 import checknum
 import question
 
+
+
 pg.init()
 clock = pg.time.set_timer(pg.USEREVENT,1000)
 screen_size = 750,800
@@ -51,6 +53,8 @@ def draw_buttons():
         text_rect = text.get_rect(center=button_rect.center)
         screen.blit(text, text_rect)
         x += button_width +150
+
+
 
 
 def Draw_numbers():
