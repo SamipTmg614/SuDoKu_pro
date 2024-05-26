@@ -33,6 +33,8 @@ def draw_background():
         pg.draw.line(screen,pg.Color("black"),pg.Vector2(15 , (i * 80)+15),pg.Vector2(733,(i*80)+15),linewidth)
         i+=1
 
+        
+
 def draw_buttons():
     # image=pg.image.load("button_background.png") #For Button Image
     button_width = 130
