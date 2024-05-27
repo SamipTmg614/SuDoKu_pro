@@ -1,14 +1,12 @@
-import data,question
-import check_box
-
+import question
 row = question.row
-col=data.col
-available = None
+col=question.col
 
+#Function that returns True when the number is not repeated in row, column and box
 def in_number(x,y,z,row): 
-    box_num=check_box.check(x,y)#To determine box number
-    box_data=question.change_box()#Calling chnage_box to update box values
-    for i in range(9):
+    box_num=question.check(x,y) #To determine box number
+    box_data=question.change_box()  #Calling change_box to update box values
+    for i in range(9):#Changing column values
         for j in range(9):
             col[i][j]=row[j][i]
     if row[x][y] =='':
@@ -24,7 +22,5 @@ def in_number(x,y,z,row):
             else:
                 available = False
         else:
-            available = False
-        
-        return available
-     
+            available = False        
+    return available    
