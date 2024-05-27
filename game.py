@@ -33,8 +33,6 @@ def draw_background():
         pg.draw.line(screen,pg.Color("black"),pg.Vector2(15 , (i * 80)+15),pg.Vector2(733,(i*80)+15),linewidth)
         i+=1
 
-        
-
 def draw_buttons():
     # image=pg.image.load("button_background.png") #For Button Image
     button_width = 130
@@ -51,7 +49,6 @@ def draw_buttons():
         text_rect = text.get_rect(center=button_rect.center)
         screen.blit(text, text_rect)
         x += button_width +150
-
 
 def Draw_numbers():
     for i in range(9):
@@ -79,7 +76,6 @@ def get_clicked_cell(mouse_pos):
     else:
         return None 
 
-
 def draw_selected_cell():
     global selected_cell
     if selected_cell is not None:
@@ -87,7 +83,6 @@ def draw_selected_cell():
         row, col = selected_cell
         cell_rect = pg.Rect(15 + col * 80, 15 + row * 80, 80, 80)
         pg.draw.rect(screen, pg.Color("green"), cell_rect, 3)
-
 
 def Game_loop():
     global number_grid
@@ -126,9 +121,9 @@ def Game_loop():
         checknum.in_number()
         pg.display.flip()  
 
+#Calling functions that draw the pygame GUI
     draw_background()
     draw_buttons()
-
     draw_selected_cell()
     Draw_numbers()
     pg.display.flip()  
@@ -137,4 +132,3 @@ def Game_loop():
 
 while 1:
     Game_loop()
-     
