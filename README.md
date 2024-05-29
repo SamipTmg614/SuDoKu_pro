@@ -1,16 +1,24 @@
-hello every one,
-This is the program i have writeen as to propose my idea for upcoming software design project.
-since we have studied only upto conditional statement, I wrote the codes by only using logical state ments.
+#SUDOKU
 
-this is basically supposed to be a 9x9 grid sudoku puzzle where few numbers are generated randomly.
-Since the pattern is generalted randomly and input by the user can be done at any position if it satisfy the given conditions, the number gets added and at the end, this has result to not have a complete solution most of the time.
+
+hello every one,
+This is the program we have writeen as for software design project.
+this program focuses only on using basic python conditional statements to handle task.
+
+this is a  9x9 grid sudoku puzzle where different numbers are generated on basis of level user choose .
+The questions are taken from online so that the puzzel is solvable.
 
 OVERVIEW:
-there are 3 files i have made which have different functions but works according to each other.you have to run the main.py file. 
-The main file has the codes which decides what a user can see and takes input from themn and as well as works to solve the problem if called.
-the main file file is connected to check number where the position o the number to be input and the number is checked if it is available or not,if the number is available it returns available and replaces the given position with number.
-where as all the data to work with or the place to store are made in data file for clarity and to make code understandable
+on running the code, we get to see the empty grid where user can choose the question levels by clicking the 3 different levels.
+onle level is selected, user can input the number in empty space which is displayed if coreect else not.
 
+
+Gui:
+as to present the program user friendly, we have used pygame module to pringt the window,grids,take input from user.
+where as the decision making is handeled by conditional statement.
 
 how the decisiion process works:
-on file data.py data is stored as list. WHen the print numbers is called in main.py random position as well as number is generated whis is sent to the check_number() function of checknumber file which replaces the given position of row set with the given number, this process is repeated for given range number of times.
+once user clicks on the empty grid and inputs a number, pygame checks if the inserted number is whether 1-9 or not.
+when level is choosen. the datas for row,column and box are stored in seperate lists. Every grid is assigned certain values so when user inputs a number, it is checked whether that number is present in
+given row or column box. If no similar number is found, the number gets updated to every lists for rows, column and boxes.
+this process is done for every number user inserts into the grid untill puzzle is solved.
